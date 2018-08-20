@@ -45,17 +45,17 @@
     [self.expButton setAttributedTitle:expTitle
                               forState:UIControlStateNormal];
     
-    self.accumulator = 0;
-    self.op = OpNone;
-    self.operand = 0;
-    self.modulus = 10;
-    
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.usesGroupingSeparator = YES;
     formatter.maximumFractionDigits = 0;
     self.formatter = formatter;
-
+    
+    self.accumulator = 0;
+    self.op = OpNone;
+    self.operand = 0;
+    self.modulus = 10;
+    
     [self showAccumulator];
 }
 
@@ -218,9 +218,6 @@ static CalcNumber ModPower(CalcNumber base, CalcNumber exp, CalcNumber mod) {
     CalcNumber digit = sender.tag;
     self.operand = self.operand * 10 + digit;
     [self showOperand];
-}
-- (IBAction)fuckl:(id)sender {
-    [self performSegueWithIdentifier:@"rage" sender:nil];
 }
 
 - (void)setModulus:(CalcNumber)modulus {
