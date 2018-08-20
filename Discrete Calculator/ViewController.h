@@ -22,6 +22,5 @@ typedef NS_ENUM(NSUInteger, CalcOperator) {
 
 @interface ViewController : UIViewController
 
-
 @end
 

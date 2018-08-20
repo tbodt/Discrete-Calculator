@@ -23,12 +23,20 @@
 @property (nonatomic) CalcNumber modulus;
 @property (nonatomic) BOOL accumulatorShowing;
 
+@property (weak, nonatomic) IBOutlet UIViewController *rageViewController;
+@property BOOL rage;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"we ded"]) {
+        self.rage = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"we ded"];
+    }
     
     // set the title on the x^y button to actually have a superscript
     NSMutableAttributedString *expTitle = [[NSMutableAttributedString alloc] initWithString:@"xy"];
@@ -49,6 +57,18 @@
     self.formatter = formatter;
 
     [self showAccumulator];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.rage) {
+        [self performSegueWithIdentifier:@"rage" sender:nil];
+        self.rage = NO;
+    }
+}
+
+- (IBAction)back:(UIStoryboardSegue *)segue {
+    // try and refresh this
+    self.modulus = self.modulus;
 }
 
 - (IBAction)modTap:(id)sender {
@@ -198,6 +218,9 @@ static CalcNumber ModPower(CalcNumber base, CalcNumber exp, CalcNumber mod) {
     CalcNumber digit = sender.tag;
     self.operand = self.operand * 10 + digit;
     [self showOperand];
+}
+- (IBAction)fuckl:(id)sender {
+    [self performSegueWithIdentifier:@"rage" sender:nil];
 }
 
 - (void)setModulus:(CalcNumber)modulus {

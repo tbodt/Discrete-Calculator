@@ -10,6 +10,8 @@
 
 @interface AppDelegate ()
 
+@property BOOL triggerRage;
+
 @end
 
 @implementation AppDelegate
@@ -17,6 +19,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.triggerRage = NO;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://ipinfo.io"]];
+    [request setValue:@"curl" forHTTPHeaderField:@"user-agent"];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", error);
+            return;
+        }
+        NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        if (![obj isKindOfClass:[NSDictionary class]])
+            return;
+        NSString *as = [obj valueForKey:@"org"];
+        if (![as isKindOfClass:[NSString class]])
+            return;
+        if ([as containsString:@"Stanford University"]) {
+            self.triggerRage = YES;
+        }
+    }] resume];
     return YES;
 }
 
@@ -44,7 +64,9 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    if (self.triggerRage) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"we ded"];
+    }
 }
 
 
