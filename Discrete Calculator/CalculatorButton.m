@@ -10,13 +10,13 @@
 
 @interface CalculatorButton ()
 @property UIColor *defaultBackground;
+@property CGFloat oldHeight;
 @end
 
 @implementation CalculatorButton
 
 - (void)awakeFromNib {
     self.defaultBackground = self.backgroundColor;
-    self.layer.cornerRadius = self.frame.size.height / 2;
     [super awakeFromNib];
 }
 
@@ -35,7 +35,16 @@
 }
 
 - (void)layoutSubviews {
-    self.layer.cornerRadius = self.frame.size.height / 2;
+    CGFloat height = self.frame.size.height;
+    // work around interface builder getting into an infinite recursive cycle of layoutSubviews
+    if (height == self.oldHeight)
+        return;
+    self.oldHeight = height;
+    
+    self.layer.cornerRadius = height / 2;
+    CGFloat fontSize = height * 11 / 24;
+    NSLog(@"%f", fontSize);
+    self.titleLabel.font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
     [super layoutSubviews];
 }
 
