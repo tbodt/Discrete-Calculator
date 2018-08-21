@@ -421,6 +421,7 @@
                     <connections>
                         <outlet property="displayLabel" destination="6fm-PS-p4R" id="Ih9-W3-N9B"/>
                         <outlet property="expButton" destination="xTN-yO-gzu" id="e3h-AG-JOm"/>
+                        <outlet property="inverseButton" destination="4um-Mn-l7k" id="Ddt-nk-LO3"/>
                         <outlet property="modDisplay" destination="YBt-tP-WG4" id="Znr-zb-5Y2"/>
                         <segue destination="nFh-fY-7vJ" kind="show" identifier="rage" animates="NO" id="sEg-qA-pVI"/>
                     </connections>

@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, CalcOperator) {
     OpPow = 5,
 };
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
 @end
 

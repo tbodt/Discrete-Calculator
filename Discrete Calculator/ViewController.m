@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *modDisplay;
 
 @property (weak, nonatomic) IBOutlet UIButton *expButton;
+@property (weak, nonatomic) IBOutlet UIButton *inverseButton;
 @property NSNumberFormatter *formatter;
 
 @property (nonatomic) CalcNumber accumulator;
@@ -23,7 +24,6 @@
 @property (nonatomic) CalcNumber modulus;
 @property (nonatomic) BOOL accumulatorShowing;
 
-@property (weak, nonatomic) IBOutlet UIViewController *rageViewController;
 @property BOOL rage;
 
 @end
@@ -41,16 +41,26 @@
     }
     
     // set the title on the x^y button to actually have a superscript
-    NSMutableAttributedString *expTitle = [[NSMutableAttributedString alloc] initWithString:@"xy"];
-    [expTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(1, 1)];
-    [expTitle addAttribute:(NSString *) kCTSuperscriptAttributeName value:@"1" range:NSMakeRange(1, 1)];
-    [self.expButton setAttributedTitle:expTitle
-                              forState:UIControlStateNormal];
+    CGFloat offset = self.expButton.titleLabel.font.pointSize / 2;
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"xy"];
+    [title addAttribute:(NSString *) kCTSuperscriptAttributeName value:@1 range:NSMakeRange(1, 1)];
+    [title addAttribute:NSBaselineOffsetAttributeName value:@(-offset) range:NSMakeRange(1, 1)];
+    [self.expButton setAttributedTitle:title forState:UIControlStateNormal];
+    
+    // and the 1/x button
+    // jk I couldn't get it to work
+//    title = [[NSMutableAttributedString alloc] initWithString:@"1/x"];
+//    [title addAttribute:(NSString *) kCTSuperscriptAttributeName value:@1 range:NSMakeRange(0, 1)];
+//    [title addAttribute:(NSString *) kCTSuperscriptAttributeName value:@-1 range:NSMakeRange(2, 1)];
+//    [title addAttribute:NSBaselineOffsetAttributeName value:@(-16) range:NSMakeRange(0, 1)];
+//    [title addAttribute:NSBaselineOffsetAttributeName value:@(16) range:NSMakeRange(2, 1)];
+//    [self.inverseButton setAttributedTitle:title forState:UIControlStateNormal];
     
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.usesGroupingSeparator = YES;
     formatter.maximumFractionDigits = 0;
+    formatter.allowsFloats = NO;
     self.formatter = formatter;
     
     self.accumulator = 0;
@@ -79,21 +89,32 @@
     [alert addTextFieldWithConfigurationHandler:^(UITextField *field) {
         field.keyboardType = UIKeyboardTypeDecimalPad;
         field.returnKeyType = UIReturnKeyDone;
+        field.text = [[NSNumber numberWithUnsignedLongLong:self.modulus] stringValue];
+        field.delegate = self;
     }];
     [alert addAction:
-     [UIAlertAction actionWithTitle:@"OK"
-                              style:UIAlertActionStyleDefault
-                            handler:^(UIAlertAction *action) {
-        NSScanner *scanner = [NSScanner scannerWithString:alert.textFields[0].text];
-        CalcNumber modulus;
-        if (![scanner scanUnsignedLongLong:&modulus]) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"wot?" message:nil preferredStyle:UIAlertControllerStyleAlert];
-            [self presentViewController:alert animated:YES completion:nil];
+     [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *text = alert.textFields[0].text;
+        if (text.length == 0)
+            return;
+        NSNumber *number = [self.formatter numberFromString:text];
+        if (number != nil) {
+            self.modulus = number.unsignedLongLongValue;
         } else {
-            self.modulus = modulus;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"wot?"
+                                                                           message:nil
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"wot" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [self presentViewController:alert animated:YES completion:^{
+        [alert.textFields[0] selectAll:nil];
+    }];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)field {
+    field.selectedTextRange = [field textRangeFromPosition:field.beginningOfDocument toPosition:field.endOfDocument];
 }
 
 - (void)showNumber:(CalcNumber)number {
@@ -117,7 +138,6 @@
     self.accumulator = 0;
     self.op = OpNone;
     self.operand = 0;
-    self.modulus = 10;
     [self showOperand];
 }
 - (IBAction)clearTap:(id)sender {

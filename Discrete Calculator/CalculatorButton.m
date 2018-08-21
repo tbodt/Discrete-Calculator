@@ -43,7 +43,6 @@
     
     self.layer.cornerRadius = height / 2;
     CGFloat fontSize = height * 11 / 24;
-    NSLog(@"%f", fontSize);
     self.titleLabel.font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
     [super layoutSubviews];
 }
