@@ -1,4 +1,4 @@
-# Discrete Calculator
+# Mod Calculator
 
 An iOS app that looks like the regular calculator, but works in a modulus.
 

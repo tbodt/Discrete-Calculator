@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		BB525EBC210847900075961E /* CalculatorButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorButton.h; sourceTree = "<group>"; };
 		BB525EBD210847900075961E /* CalculatorButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorButton.m; sourceTree = "<group>"; };
-		BBAB463C210646FF00620357 /* Discrete Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discrete Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBAB463C210646FF00620357 /* Mod Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mod Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAB463F210646FF00620357 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBAB4640210646FF00620357 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BBAB4642210646FF00620357 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		BBAB4633210646FF00620357 = {
 			isa = PBXGroup;
 			children = (
-				BBAB463E210646FF00620357 /* Discrete Calculator */,
+				BBAB463E210646FF00620357 /* Mod Calculator */,
 				BBAB463D210646FF00620357 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,12 +55,12 @@
 		BBAB463D210646FF00620357 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BBAB463C210646FF00620357 /* Discrete Calculator.app */,
+				BBAB463C210646FF00620357 /* Mod Calculator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BBAB463E210646FF00620357 /* Discrete Calculator */ = {
+		BBAB463E210646FF00620357 /* Mod Calculator */ = {
 			isa = PBXGroup;
 			children = (
 				BBAB463F210646FF00620357 /* AppDelegate.h */,
@@ -76,15 +76,15 @@
 				BBAB464D2106470200620357 /* Info.plist */,
 				BBAB464E2106470200620357 /* main.m */,
 			);
-			path = "Discrete Calculator";
+			path = "Mod Calculator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BBAB463B210646FF00620357 /* Discrete Calculator */ = {
+		BBAB463B210646FF00620357 /* Mod Calculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBAB46522106470200620357 /* Build configuration list for PBXNativeTarget "Discrete Calculator" */;
+			buildConfigurationList = BBAB46522106470200620357 /* Build configuration list for PBXNativeTarget "Mod Calculator" */;
 			buildPhases = (
 				BBAB4638210646FF00620357 /* Sources */,
 				BBAB4639210646FF00620357 /* Frameworks */,
@@ -94,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = "Discrete Calculator";
+			name = "Mod Calculator";
 			productName = "Discrete Calculator";
-			productReference = BBAB463C210646FF00620357 /* Discrete Calculator.app */;
+			productReference = BBAB463C210646FF00620357 /* Mod Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BBAB4637210646FF00620357 /* Build configuration list for PBXProject "Discrete Calculator" */;
+			buildConfigurationList = BBAB4637210646FF00620357 /* Build configuration list for PBXProject "Mod Calculator" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BBAB463B210646FF00620357 /* Discrete Calculator */,
+				BBAB463B210646FF00620357 /* Mod Calculator */,
 			);
 		};
 /* End PBXProject section */
@@ -296,7 +296,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CK5SXRTBR7;
-				INFOPLIST_FILE = "Discrete Calculator/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Mod Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,7 +305,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Discrete-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,7 +316,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CK5SXRTBR7;
-				INFOPLIST_FILE = "Discrete Calculator/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Mod Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,14 +325,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Discrete-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BBAB4637210646FF00620357 /* Build configuration list for PBXProject "Discrete Calculator" */ = {
+		BBAB4637210646FF00620357 /* Build configuration list for PBXProject "Mod Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBAB46502106470200620357 /* Debug */,
@@ -341,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBAB46522106470200620357 /* Build configuration list for PBXNativeTarget "Discrete Calculator" */ = {
+		BBAB46522106470200620357 /* Build configuration list for PBXNativeTarget "Mod Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBAB46532106470200620357 /* Debug */,
