@@ -33,9 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"we ded"]) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:@{@"modulus": @10}];
+    if ([defaults boolForKey:@"we ded"]) {
         self.rage = YES;
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"we ded"];
+        [defaults setBool:NO forKey:@"we ded"];
     }
     
     // set the title on the x^y button to actually have a superscript
@@ -54,7 +56,7 @@
     self.accumulator = 0;
     self.op = OpNone;
     self.operand = 0;
-    self.modulus = 10;
+    self.modulus = [[defaults objectForKey:@"modulus"] unsignedLongLongValue];
     
     [self showAccumulator];
 }
@@ -67,8 +69,7 @@
 }
 
 - (IBAction)back:(UIStoryboardSegue *)segue {
-    // try and refresh this
-    self.modulus = self.modulus;
+    // this is stupid
 }
 
 - (IBAction)modTap:(id)sender {
@@ -222,7 +223,9 @@ static CalcNumber ModPower(CalcNumber base, CalcNumber exp, CalcNumber mod) {
 
 - (void)setModulus:(CalcNumber)modulus {
     _modulus = modulus;
-    self.modDisplay.text = [NSString stringWithFormat:@"mod %@", [self.formatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:modulus]]];
+    NSNumber *modulusNumber = [NSNumber numberWithUnsignedLongLong:modulus];
+    self.modDisplay.text = [NSString stringWithFormat:@"mod %@", [self.formatter stringFromNumber:modulusNumber]];
+    [[NSUserDefaults standardUserDefaults] setObject:modulusNumber forKey:@"modulus"];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
