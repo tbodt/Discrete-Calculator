@@ -481,7 +481,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meme.png" translatesAutoresizingMaskIntoConstraints="NO" id="tZn-W1-ZTt">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meme.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tZn-W1-ZTt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -511,6 +511,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="meme.png" width="623" height="960"/>
+        <image name="meme.jpg" width="623" height="960"/>
     </resources>
 </document>
