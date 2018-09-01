@@ -102,7 +102,7 @@
         if (text.length == 0)
             return;
         NSNumber *number = [self.formatter numberFromString:text];
-        if (number != nil) {
+        if (number.unsignedLongLongValue != 0) {
             self.modulus = number.unsignedLongLongValue;
         } else {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"wot?"
