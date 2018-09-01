@@ -388,13 +388,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-PS-p4R">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-PS-p4R" customClass="DisplayLabel">
                                 <rect key="frame" x="23" y="66" width="274" height="84"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="84"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                        <color key="value" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="0.77000000000000002" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ghp-ng-Ay6" appends="YES" id="u1p-eU-cVD"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mod 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBt-tP-WG4">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mod 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBt-tP-WG4">
                                 <rect key="frame" x="215.5" y="149.5" width="77.5" height="20.5"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -413,7 +421,7 @@
                             <constraint firstItem="6fm-PS-p4R" firstAttribute="trailing" secondItem="YBt-tP-WG4" secondAttribute="trailing" constant="4" id="ddY-Jr-PSH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kzy-11-DAE" secondAttribute="trailing" constant="15" id="jwb-Yh-CaE"/>
                             <constraint firstItem="kzy-11-DAE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="ngt-ag-Ioc"/>
-                            <constraint firstItem="6fm-PS-p4R" firstAttribute="leading" secondItem="kzy-11-DAE" secondAttribute="leading" constant="8" id="oAD-Pb-81F"/>
+                            <constraint firstItem="6fm-PS-p4R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kzy-11-DAE" secondAttribute="leading" constant="8" id="oAD-Pb-81F"/>
                             <constraint firstItem="kzy-11-DAE" firstAttribute="top" secondItem="YBt-tP-WG4" secondAttribute="bottom" constant="20" id="oYp-ES-Bjm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -427,49 +435,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cnj-Wa-cpf" customClass="CalculatorButton">
-                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <state key="normal" title="0"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackground">
-                            <color key="value" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8qC-je-KYM" customClass="CalculatorButton">
-                    <rect key="frame" x="0.0" y="0.0" width="70.5" height="70.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.64313725490196083" green="0.64313725490196083" blue="0.64313725490196083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <state key="normal" title="C">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackground">
-                            <color key="value" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vVg-sR-D3y" customClass="CalculatorButton">
-                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.98431372549019602" green="0.5725490196078431" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <state key="normal" title="+"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackground">
-                            <color key="value" red="0.96078431372549022" green="0.75686274509803919" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
                 <tapGestureRecognizer id="0uw-jl-oyT" userLabel="Mod Tap">
                     <connections>
-                        <action selector="modTap:" destination="BYZ-38-t0r" id="gBi-5i-EGi"/>
+                        <action selector="modTap:" destination="BYZ-38-t0r" id="Cxf-4j-nZA"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Ghp-ng-Ay6" userLabel="Display Long Press">
+                    <connections>
+                        <action selector="displayModPress:" destination="BYZ-38-t0r" id="3GE-zc-4KC"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="135" y="133.09859154929578"/>
         </scene>

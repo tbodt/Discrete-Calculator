@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB4CA7A32139EA7400F86091 /* meme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB4CA7A22139EA7400F86091 /* meme.jpg */; };
+		BB4CA7A62139F86E00F86091 /* DisplayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4CA7A52139F86E00F86091 /* DisplayLabel.m */; };
 		BB525EBE210847900075961E /* CalculatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BB525EBD210847900075961E /* CalculatorButton.m */; };
 		BBAB4641210646FF00620357 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAB4640210646FF00620357 /* AppDelegate.m */; };
 		BBAB4644210646FF00620357 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAB4643210646FF00620357 /* ViewController.m */; };
@@ -19,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		BB4CA7A22139EA7400F86091 /* meme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = meme.jpg; sourceTree = "<group>"; };
+		BB4CA7A42139F86E00F86091 /* DisplayLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayLabel.h; sourceTree = "<group>"; };
+		BB4CA7A52139F86E00F86091 /* DisplayLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayLabel.m; sourceTree = "<group>"; };
 		BB525EBC210847900075961E /* CalculatorButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorButton.h; sourceTree = "<group>"; };
 		BB525EBD210847900075961E /* CalculatorButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorButton.m; sourceTree = "<group>"; };
 		BBAB463C210646FF00620357 /* Mod Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mod Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +72,8 @@
 				BBAB4643210646FF00620357 /* ViewController.m */,
 				BB525EBC210847900075961E /* CalculatorButton.h */,
 				BB525EBD210847900075961E /* CalculatorButton.m */,
+				BB4CA7A42139F86E00F86091 /* DisplayLabel.h */,
+				BB4CA7A52139F86E00F86091 /* DisplayLabel.m */,
 				BBAB4645210646FF00620357 /* Main.storyboard */,
 				BBAB46482106470200620357 /* Assets.xcassets */,
 				BB4CA7A22139EA7400F86091 /* meme.jpg */,
@@ -152,6 +157,7 @@
 			files = (
 				BBAB4644210646FF00620357 /* ViewController.m in Sources */,
 				BBAB464F2106470200620357 /* main.m in Sources */,
+				BB4CA7A62139F86E00F86091 /* DisplayLabel.m in Sources */,
 				BBAB4641210646FF00620357 /* AppDelegate.m in Sources */,
 				BB525EBE210847900075961E /* CalculatorButton.m in Sources */,
 			);

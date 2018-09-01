@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *modDisplay;
-
 @property (weak, nonatomic) IBOutlet UIButton *expButton;
 @property (weak, nonatomic) IBOutlet UIButton *inverseButton;
 @property NSNumberFormatter *formatter;
@@ -39,6 +38,10 @@
         self.rage = YES;
         [defaults setBool:NO forKey:@"we ded"];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIMenuControllerDidHideMenuNotification object:[UIMenuController sharedMenuController] queue:nil usingBlock:^(NSNotification *n) {
+        [self.displayLabel resignFirstResponder];
+    }];
     
     // set the title on the x^y button to actually have a superscript
     CGFloat offset = self.expButton.titleLabel.font.pointSize / 2;
@@ -83,6 +86,7 @@
 }
 
 - (IBAction)modTap:(id)sender {
+    [self.displayLabel resignFirstResponder]; // this is also stupid
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Set modulus"
                                                                    message:nil
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -108,9 +112,7 @@
             [self presentViewController:alert animated:YES completion:nil];
         }
     }]];
-    [self presentViewController:alert animated:YES completion:^{
-        [alert.textFields[0] selectAll:nil];
-    }];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)field {
@@ -250,6 +252,14 @@ static CalcNumber ModPower(CalcNumber base, CalcNumber exp, CalcNumber mod) {
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (IBAction)displayModPress:(id)sender {
+    CGRect textRect = [self.displayLabel textRectForBounds:self.displayLabel.bounds limitedToNumberOfLines:self.displayLabel.numberOfLines];
+    [self.displayLabel becomeFirstResponder];
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    [menuController setTargetRect:textRect inView:self.displayLabel];
+    [menuController setMenuVisible:YES animated:YES];
 }
 
 @end
