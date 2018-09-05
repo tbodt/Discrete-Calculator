@@ -412,6 +412,13 @@
                                     <outletCollection property="gestureRecognizers" destination="0uw-jl-oyT" appends="YES" id="qHI-oC-lWb"/>
                                 </connections>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLm-8C-5Co">
+                                <rect key="frame" x="185" y="149" width="22" height="22"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="modTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ShJ-3q-dTD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -419,10 +426,12 @@
                             <constraint firstItem="kzy-11-DAE" firstAttribute="trailing" secondItem="6fm-PS-p4R" secondAttribute="trailing" constant="8" id="O2j-l9-UeM"/>
                             <constraint firstItem="YBt-tP-WG4" firstAttribute="top" secondItem="6fm-PS-p4R" secondAttribute="bottom" id="bKl-j7-KZX"/>
                             <constraint firstItem="6fm-PS-p4R" firstAttribute="trailing" secondItem="YBt-tP-WG4" secondAttribute="trailing" constant="4" id="ddY-Jr-PSH"/>
+                            <constraint firstItem="YBt-tP-WG4" firstAttribute="centerY" secondItem="lLm-8C-5Co" secondAttribute="centerY" id="fSt-Dm-shT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kzy-11-DAE" secondAttribute="trailing" constant="15" id="jwb-Yh-CaE"/>
                             <constraint firstItem="kzy-11-DAE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="ngt-ag-Ioc"/>
                             <constraint firstItem="6fm-PS-p4R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kzy-11-DAE" secondAttribute="leading" constant="8" id="oAD-Pb-81F"/>
                             <constraint firstItem="kzy-11-DAE" firstAttribute="top" secondItem="YBt-tP-WG4" secondAttribute="bottom" constant="20" id="oYp-ES-Bjm"/>
+                            <constraint firstItem="YBt-tP-WG4" firstAttribute="leading" secondItem="lLm-8C-5Co" secondAttribute="trailing" constant="8" id="zrz-kj-uo0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
