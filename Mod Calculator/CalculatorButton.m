@@ -16,8 +16,8 @@
 @implementation CalculatorButton
 
 - (void)awakeFromNib {
-    self.defaultBackground = self.backgroundColor;
     [super awakeFromNib];
+    self.defaultBackground = self.backgroundColor;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -43,8 +43,13 @@
     
     self.layer.cornerRadius = height / 2;
     CGFloat fontSize = height * 11 / 24;
-    self.titleLabel.font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+    self.titleLabel.font = [UIFont monospacedDigitSystemFontOfSize:fontSize weight:UIFontWeightRegular];
     [super layoutSubviews];
+}
+
+- (CGRect)contentRectForBounds:(CGRect)bounds {
+    bounds.size.width = bounds.size.height;
+    return [super contentRectForBounds:bounds];
 }
 
 @end
