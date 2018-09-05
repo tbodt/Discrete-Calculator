@@ -27,10 +27,7 @@
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     if (highlighted) {
-        CGRect textRect = [self textRectForBounds:self.bounds limitedToNumberOfLines:self.numberOfLines];
-        textRect.origin = self.frame.origin;
-        textRect = CGRectInset(textRect, -16, 4);
-        self.highlightView.frame = textRect;
+        self.highlightView.frame = CGRectInset(self.frame, -8, 4);
     }
     self.highlightView.hidden = !highlighted;
 }
@@ -62,5 +59,11 @@
     self.highlighted = NO;
     return YES;
 }
+
+//- (void)drawTextInRect:(CGRect)rect {
+//    NSStringDrawingContext *context = [NSStringDrawingContext new];
+//    context.minimumScaleFactor = self.minimumScaleFactor;
+//    [[[NSAttributedString alloc] initWithString:self.text attributes:@{NSFontAttributeName:self.font,NSForegroundColorAttributeName:self.textColor}] drawWithRect:self.bounds options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:context];
+//}
 
 @end
